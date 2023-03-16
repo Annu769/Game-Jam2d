@@ -22,7 +22,7 @@ public class SpawningMonster : MonoBehaviour
         switch(monsterType)
         {
             case MonsterType.Monster1:
-                StartCoroutine(SpawnMonster(PoolObjectsTypes.Monster2));
+                StartCoroutine(SpawnMonster(PoolObjectsTypes.Monster1));
                 break;
 
             case MonsterType.Monster2:
@@ -35,7 +35,7 @@ public class SpawningMonster : MonoBehaviour
     private IEnumerator SpawnMonster(PoolObjectsTypes type)
     {
         yield return new WaitForSeconds(3);
-        GameObject obj = PoolManager.Instace.GetPooledObject(type);
+        GameObject obj = PoolManager.Instance.GetPooledObject(type);
         if(obj != null)
         {
             obj.transform.position = this.transform.position;

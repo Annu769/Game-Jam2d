@@ -5,8 +5,23 @@ using UnityEngine;
 public class BulletPerforming : MonoBehaviour
 {
 
+  
+    [SerializeField] private Vector2 moveSpeed;
+    private Rigidbody2D rb;
 
-   
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+    }
+    private void FixedUpdate()
+    {
+        rb.velocity = moveSpeed;
+    }
+    
+  
+    
+
     private GameOverFuctions GameOver;
   
     private void OnCollisionEnter2D(Collision2D col)
@@ -15,8 +30,8 @@ public class BulletPerforming : MonoBehaviour
         {
             
             col.gameObject.SetActive(false);
-           
-            gameObject.SetActive(false);
+
+            PoolManager.Instance.ReturnToPool(this.gameObject);
             ScoreUI.Instance.AddScore();
            
         }

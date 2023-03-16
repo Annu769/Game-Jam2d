@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementController : MonoBehaviour
 {
     private Rigidbody2D _rigidBody;
-    private Animator anime;
+    private Animator animator;
    [SerializeField] private float speed = 10f;
     private float horizontal;
     private float Vertical;
@@ -16,7 +16,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
-        anime = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -31,15 +31,16 @@ public class PlayerMovementController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         // tihs is use for player Input Move Verticaly 
         Vertical = Input.GetAxis("Vertical");
-        
+
         _direction = new Vector2(horizontal, Vertical);
         _rigidBody.velocity = _direction.normalized * speed;
         PlayerAnimation();
 
-        if(Input.GetButtonDown("Fire1"))
+        if (!Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Fire(PoolObjectsTypes.Player_Bullet);
+            return;
         }
+        Fire(PoolObjectsTypes.Player_Bullet);
 
 
     }
@@ -48,22 +49,22 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (horizontal < 0)
         {
-            anime.SetBool("isFlyingLeft", true);
+            animator.SetBool("isFlyingLeft", true);
         }
         else if (horizontal > 0)
         {
-            anime.SetBool("isFlyingRight", true);
+            animator.SetBool("isFlyingRight", true);
         }
         else
         {
-            anime.SetBool("isFlyingMid", true);
+            animator.SetBool("isFlyingMid", true);
         }
 
     }
 
     private void Fire(PoolObjectsTypes type)
     {
-        GameObject _Bullet = PoolManager.Instace.GetPooledObject(type);
+        GameObject _Bullet = PoolManager.Instance.GetPooledObject(type);
         if (_Bullet != null)
         {
             _Bullet.transform.position = _bulletPositon.transform.position;

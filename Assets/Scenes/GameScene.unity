@@ -389,7 +389,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.03328587, g: 0.41509432, b: 0.28893843, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -880,11 +880,6 @@ RectTransform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4483875283443975160, guid: 7bc5028263eb0794c8b7ecf5e8c93979, type: 3}
   m_PrefabInstance: {fileID: 8806531839114775845}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &725529255 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9127501467336381011, guid: 4f48ca85f2e26a04f905b03b7d0aee2f, type: 3}
-  m_PrefabInstance: {fileID: 915054329}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &725529256 stripped
 Transform:
@@ -1939,10 +1934,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040785225}
     m_Modifications:
-    - target: {fileID: 1745352917683446002, guid: f619fd1c18c49664aa0ec0f01a24c173, type: 3}
-      propertyPath: ScoreManager
-      value: 
-      objectReference: {fileID: 1716368945}
     - target: {fileID: 2858856282135137648, guid: f619fd1c18c49664aa0ec0f01a24c173, type: 3}
       propertyPath: m_Name
       value: SpikyBall
@@ -2886,7 +2877,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 424e5608b7ad73848b274d39be4b953b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  donDestroy: 1
   listOfPoolObj:
   - type: 0
     amount: 20
@@ -2895,12 +2885,12 @@ MonoBehaviour:
     pool: []
   - type: 1
     amount: 20
-    prefab: {fileID: 725529255}
+    prefab: {fileID: 9127501467336381011, guid: 4f48ca85f2e26a04f905b03b7d0aee2f, type: 3}
     prefab_Position: {fileID: 1671725842}
     pool: []
   - type: 2
     amount: 20
-    prefab: {fileID: 725529255}
+    prefab: {fileID: 695430016493430523, guid: 694d12650f4219d45b41b34a66bea652, type: 3}
     prefab_Position: {fileID: 1671725842}
     pool: []
 --- !u!1 &1716368940

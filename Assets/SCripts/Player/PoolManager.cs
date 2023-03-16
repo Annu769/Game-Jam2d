@@ -65,7 +65,8 @@ public class PoolManager : Singleton<PoolManager>
         }
         else
         {
-            objectInstance = Instantiate(selected.prefab, selected.prefab_Position.transform);
+            GameObject gameObject1 = Instantiate(selected.prefab, selected.prefab_Position.transform);
+            objectInstance = gameObject1;
         }
         return objectInstance;
 
@@ -80,6 +81,11 @@ public class PoolManager : Singleton<PoolManager>
                 return listOfPoolObj[i];
         }
         return null;
+    }
+
+    public void ReturnToPool(GameObject obj)
+    {
+        obj.SetActive(false);
     }
 
     
